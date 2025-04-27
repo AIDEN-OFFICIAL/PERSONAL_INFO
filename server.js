@@ -4,6 +4,7 @@ import cors from 'cors'
 import cookieParser from 'cookie-parser';
 import mongoose from 'mongoose';
 import router from './routes/authRoute.js'
+import adminRoutes from './routes/adminRoutes.js'
 import {v2 as cloudinary} from 'cloudinary'
 
 dotenv.config();
@@ -35,6 +36,8 @@ app.use(express.urlencoded({ extended: true }));
 
 
 app.use('/api/auth', router);
+app.use('/api/admin', adminRoutes);
+
 
 app.get('/', (req, res) => {
     res.send('API runing...')
